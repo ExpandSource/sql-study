@@ -3,6 +3,7 @@
 `LibraryManagement` 데이터베이스는 도서관 관리 시스템을 위한 데이터베이스입니다. 이 시스템은 도서(Books), 회원(Members), 대출 기록(BorrowRecords) 등 주요 정보를 관리합니다.
 
 */
+DROP SCHEMA IF EXIST LibraryManagement;
 CREATE SCHEMA LibraryManagement;
 USE LibraryManagement;
 /*

@@ -3,6 +3,7 @@
 `HealthcareManagement` 데이터베이스는 병원 관리 시스템을 위한 데이터베이스입니다. 이 시스템은 환자(Patients), 의사(Doctors), 예약(Appointments) 등 주요 정보를 관리합니다.
 */
 -- 스키마 생성과 사용
+DROP SCHEMA IF EXISTS LibraryManagement;
 CREATE SCHEMA HealthcareManagement;
 USE HealthcareManagement;
 CREATE TABLE Patients (
