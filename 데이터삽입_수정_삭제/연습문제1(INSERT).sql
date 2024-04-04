@@ -76,6 +76,20 @@ LibraryManagement 스키마에서 데이터 삽입 연습
 */
 
 USE LibraryManagement;
+DESCRIBE books;
+DESCRIBE members;
+DESCRIBE borrowrecords;
 
+INSERT INTO books (Title, Author, PublishedYear, Genre)
+VALUES ('The Little Prince', 'Antoine de Saint-Exupéry', 1943, 'Fiction');
 
+INSERT INTO members (FirstName, LastName, Email, MembershipDate)
+VALUES ('Alice', 'Johnson', 'alice.johnson@example.com', CURRENT_DATE),
+       ('Bob', 'Smith', 'bob.smith@example.com', CURRENT_DATE);
 
+INSERT INTO borrowrecords (MemberId, BookId, BorrowDate, ReturnDate)
+VALUES (1, 1, "2023-03-01", "2023-03-15");
+
+select * from books;
+select * from members;
+select * from borrowrecords;
