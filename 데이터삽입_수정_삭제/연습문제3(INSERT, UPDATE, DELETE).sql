@@ -1,5 +1,36 @@
 -- 데이터 삽입, 추가, 삭제 연습문제 
--- HealthCareManagement 스키마에서 진행해주세요.
+-- HealthCareManagement2 스키마에서 진행해주세요.
+drop schema if exists HealthcareManagement2; 
+create schema HealthcareManagement2;
+use HealthcareManagement2;
+
+CREATE TABLE Patients (
+    PatientID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    BirthDate DATE NOT NULL,
+    Gender CHAR(1) CHECK (Gender IN ('M', 'F')),
+    PhoneNumber VARCHAR(15)
+);
+
+CREATE TABLE Appointments (
+    AppointmentID INT AUTO_INCREMENT PRIMARY KEY,
+    PatientID INT,
+    AppointmentDate DATE NOT NULL,
+    AppointmentTime TIME NOT NULL,
+    Type VARCHAR(50) NOT NULL,
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID)
+);
+
+
+CREATE TABLE MedicalRecords (
+    RecordID INT AUTO_INCREMENT PRIMARY KEY,
+    PatientID INT,
+    VisitDate DATE NOT NULL,
+    Diagnosis VARCHAR(255) NOT NULL,
+    Prescription VARCHAR(255),
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID)
+);
+
 
 -- 문제 1: 'Patients' 테이블에 새로운 환자 추가하기
 -- 이름: "John Smith", 생년월일: "1985-02-20", 성별: "M", 전화번호: "123-456-7890"
@@ -19,14 +50,14 @@
 -- 문제 6: 'MedicalRecords' 테이블에서 진단 정보 업데이트하기
 -- 환자 ID가 1이고 방문 날짜가 "2023-04-10"인 기록의 진단을 "Seasonal Allergies"로 변경하기
 
--- 문제 7: 'Patients' 테이블에서 특정 환자 삭제하기
--- 환자 ID가 1인 환자 삭제하기
-
--- 문제 8: 'Appointments' 테이블에서 특정 날짜의 모든 예약 삭제하기
+-- 문제 7: 'Appointments' 테이블에서 특정 날짜의 모든 예약 삭제하기
 -- 예약 날짜가 "2023-04-20"인 모든 예약 삭제하기
 
--- 문제 9: 'MedicalRecords' 테이블에서 특정 진단을 가진 모든 기록 삭제하기
+-- 문제 8: 'MedicalRecords' 테이블에서 특정 진단을 가진 모든 기록 삭제하기
 -- 진단이 "Seasonal Allergies"인 모든 의료 기록 삭제하기
+
+-- 문제 9: 'Patients' 테이블에서 특정 환자 삭제하기
+-- 환자 ID가 1인 환자 삭제하기
 
 -- 문제 10: 'Patients' 테이블에 여러 환자 동시에 추가하기
 -- 환자 정보: ("Alice Johnson", "1992-08-24", "F", "555-1234"), ("Bob Williams", "1980-03-15", "M", "555-5678")
