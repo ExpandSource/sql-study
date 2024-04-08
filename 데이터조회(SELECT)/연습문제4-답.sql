@@ -69,6 +69,7 @@ SELECT DISTINCT
     Language
 FROM
     CountryLanguage;
+    
 -- 문제 10: Country 테이블에서 대륙(Continent) 순으로 고유한 정부 형태(GovernmentForm)를 조회하세요.
 SELECT DISTINCT
     Continent, GovernmentForm
