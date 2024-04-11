@@ -160,6 +160,17 @@ SELECT * FROM view_userbuytbl;
 INSERT INTO view_userbuytbl 
 VALUES ('ABC', '가나다', '모니터', '서울', '01012345678');
 
+-- 원본 테이블이 삭제되는 경우, 뷰는 조회할 수 없다.
+DROP TABLE IF EXISTS buytbl, usertbl;	-- 테이블 삭제
+
+SELECT * FROM view_usertbl;	-- 참조 불가로 인해 조회 불가
+
+CHECK TABLE view_usertbl;	-- 뷰의 상태 체크 결과 => Error
+
+DROP VIEW view_sum, view_height_upper177, view_userbuytbl, view_usertbl;
+
+
+
 
 
 
